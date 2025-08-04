@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+//it puts out out service request and response to multiple files . its get messy so
+option java_multiple_files = true;
+
+//ensure code generation and reference the service and so on
+
+option java_package = "billing";
+
+service BillingService{
+  rpc CreateBillingAccount(BillingRequest) returns(BillingResponse);
+
+
+}
+
+message BillingRequest{
+  string patientId=1;
+  string name =2;
+  string email = 3;
+
+}
+
+message BillingResponse{
+  string accountId=1;
+  string status=2;
+}
